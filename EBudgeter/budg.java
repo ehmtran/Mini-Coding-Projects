@@ -40,7 +40,7 @@ public class budg {
         System.out.print("Enter your monthly expenses: ");
         expenses = scnr.nextDouble();
 
-        // Splitting 50% roth, 30% savings, 20% spendings
+        // Get roth, savings, and spending percentages
         System.out.println();
         System.out.println(
                 "What % of your leftover money would you like to allocate to Roth IRA contributions? (Default is 50%)");
