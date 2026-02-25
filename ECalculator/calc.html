@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc :></title>
+
+    <style>
+        body {
+            background-color: #acc1af;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 50px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        button {
+            font-size: 20px;
+            margin: 5px;
+            padding: 10px;
+            background-color: #4a6c59;
+            color: #ffffff;
+            border: none;
+            width: 70px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calc_body {
+            background: #7ca58e;
+            width: 425px;
+            padding: 20px;
+            padding-left: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .long {
+            width: 232.5px;
+        }
+
+        .display {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 30px;
+            color: #ffffff;
+            padding-right: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Visible content goes here -->
+    <h2>Calculator</h2>
+    <div class="container">
+        <div class="calc_body">
+            <div id="display" class="display">
+                <p id="calc_display">0</p>
+            </div>
+            <div class="row">
+                <button onclick="num(7)">7</button>
+                <button onclick="num(8)">8</button>
+                <button onclick="num(9)">9</button>
+                <button onclick="negCalc()">+/-</button>
+                <button onclick="decimal()">.</button>
+            </div>
+            <div class="row">
+                <button onclick="num(4)">4</button>
+                <button onclick="num(5)">5</button>
+                <button onclick="num(6)">6</button>
+                <button onclick="multiply()">*</button>
+                <button onclick="divide()">/</button>
+            </div>
+            <div class="row">
+                <button onclick="num(1)">1</button>
+                <button onclick="num(2)">2</button>
+                <button onclick="num(3)">3</button>
+                <button onclick="minus()">-</button>
+                <button onclick="plus()">+</button>
+            </div>
+            <div>
+                <button onclick="clearCalc()">AC</button>
+                <button onclick="num(0)">0</button>
+                <button onclick="operate()" class="long">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JS comment
+        function num(n) {
+            let display = document.getElementById("calc_display");
+            if (display.innerHTML === "0") {
+                display.innerHTML = n;
+            } else {
+                display.innerHTML += n;
+            }
+        }
+
+        function clearCalc() {
+            document.getElementById("calc_display").innerHTML = "0";
+        }
+
+        function negCalc() {
+            let display = document.getElementById("calc_display");
+            if (display.innerHTML.charAt(0) === "-") {
+                display.innerHTML = display.innerHTML.replace("-(", "").replace(")", "");
+            } else {
+                display.innerHTML = "-(" + display.innerHTML + ")";
+            }
+        }
+
+        function decimal() {
+            let display = document.getElementById("calc_display");
+            if (!display.innerHTML.includes(".")) {
+                display.innerHTML += ".";
+            }
+        }
+
+        function plus() {
+            let display = document.getElementById("calc_display");
+            display.innerHTML += "+";
+        }
+
+        function minus() {
+            let display = document.getElementById("calc_display");
+            display.innerHTML += "-";
+        }
+
+        function divide() {
+            let display = document.getElementById("calc_display");
+            display.innerHTML += "/";
+        }
+
+        function multiply() {
+            let display = document.getElementById("calc_display");
+            display.innerHTML += "*";
+        }
+
+        function operate() {
+            try {
+                let display = document.getElementById("calc_display");
+                display.innerHTML = eval(display.innerHTML).toFixed(2);
+            } catch (e) {
+                display.innerHTML = "It broke.. reload page";
+            }
+        }
+
+        // My Attempt At Operate Function w/o eval()... it's tragic, I know
+        /*
+        function operate() {
+            try {
+                let display = document.getElementById("calc_display");
+                if (display.innerHTML.includes("*")) {
+                    let parts = display.innerHTML.split("*");
+                    let result = parseFloat(parts[0]) * parseFloat(parts[1]);
+                    display.innerHTML = result.toFixed(2);
+                }
+                else if (display.innerHTML.includes("/")) {
+                    let parts = display.innerHTML.split("/");
+                    let result = parseFloat(parts[0]) / parseFloat(parts[1]);
+                    display.innerHTML = result.toFixed(2);
+                }
+                else if (display.innerHTML.includes("+")) {
+                    let parts = display.innerHTML.split("+");
+                    let result = parseFloat(parts[0]) + parseFloat(parts[1]);
+                    display.innerHTML = result.toFixed(2);
+                }
+                else if (display.innerHTML.includes("-")) {
+                    if (display.innerHTML.charAt(0) === "-") {
+                        let parts = display.innerHTML.substring(1).split("-");
+                        let result = -parseFloat(parts[0]) - parseFloat(parts[1]);
+                        display.innerHTML = result.toFixed(2);
+                    } else {
+                        let parts = display.innerHTML.split("-");
+                        let result = parseFloat(parts[0]) - parseFloat(parts[1]);
+                        display.innerHTML = result.toFixed(2);
+                    }
+                }
+            } catch (e) {
+                display.innerHTML = "Error";
+            }
+        }
+        */
+    </script>
+</body>
+
+</html>
