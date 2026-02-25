@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter :></title>
+
+    <style>
+        body {
+            background-color: #acc1af;
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 50px;
+            letter-spacing: 2px;
+        }
+
+        .header {
+            background-color: #4a6c59;
+            padding: 10px;
+        }
+
+        .count {
+            font-size: 40px;
+            color: #ffffff;
+        }
+
+        button {
+            font-size: 20px;
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #4a6c59;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Visible content goes here -->
+    <div class="header">
+        <h2>Counter</h2>
+    </div>
+
+    <p id="count" class="count">0</p>
+
+    <button onclick=" increaseCount()">+</button>
+    <button onclick="decreaseCount()">-</button>
+    <button onclick="resetCount()">Reset</button>
+    <button onclick="saveCount()">Save</button>
+    <button onclick="loadCount()">Load</button>
+
+    <script>
+        let count = 0;
+
+        // update count display
+        function updateCount() {
+            document.getElementById("count").innerHTML = count;
+        }
+
+        // increase count
+        function increaseCount() {
+            count++;
+            updateCount();
+        }
+
+        // decrease count
+        function decreaseCount() {
+            if (count > 0) {
+                count--;
+            }
+            updateCount();
+        }
+
+        // reset count
+        function resetCount() {
+            count = 0;
+            updateCount();
+        }
+
+        // save count to local storage
+        function saveCount() {
+            localStorage.setItem("count", count);
+        }
+
+        // load count from local storage
+        function loadCount() {
+            let saved = localStorage.getItem("count");
+            if (saved !== null) {
+                count = Number(saved);
+            }
+            updateCount();
+        }
+
+    </script>
+</body>
+
+</html>
