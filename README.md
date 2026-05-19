@@ -1,12 +1,13 @@
 # House for my Mini Coding Projects
-Just practicing utilizing different programming languages to automate daily tasks and/or have some fun :)
-<br>
+Practicing different programming languages with automating daily tasks/for funsies and learning to how to use git (it's confusing)
 <br>
 <br>
 ### Project List
 - Budget Tracker
+- Counter
+- Calculator
 
 ### Future Plans (?)
-- Calculator
+- Pomodoro Timer
 - To-Do List
 - Rock Paper Scissors (extended) in as many languages as I know
