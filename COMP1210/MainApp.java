@@ -1,3 +1,5 @@
+// Create a project that demonstrates inheritance and polymorphism in Java using a Food Ordering System
+
 import java.util.ArrayList;
 
 import java.util.Scanner;

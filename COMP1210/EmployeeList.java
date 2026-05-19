@@ -1,3 +1,5 @@
+// Create a project that demonstrates inheritance and polymorphism in Java using an Employee class hierarchy
+
 import java.util.ArrayList;
 
 public class Employee {
