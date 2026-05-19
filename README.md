@@ -6,6 +6,8 @@ Practicing different programming languages with automating daily tasks/for funsi
 - Budget Tracker
 - Counter
 - Calculator
+- Java 1 Projects
+- Recursion Practice
 
 ### Future Plans (?)
 - Pomodoro Timer
